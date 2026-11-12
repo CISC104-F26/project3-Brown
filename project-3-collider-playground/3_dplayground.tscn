@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://d3g34fkvqi2jn"]
+
+[ext_resource type="Script" uid="uid://bk034hqml4qhq" path="res://playerball.gd" id="1_2rgrm"]
+[ext_resource type="Script" uid="uid://bk6gf10s4gwmq" path="res://win.gd" id="2_7tkbs"]
+[ext_resource type="Script" uid="uid://0tgqd65bf3w7" path="res://lose.gd" id="3_myek3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ijiyq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5clau"]
+radius = 0.99609756
+
+[sub_resource type="BoxMesh" id="BoxMesh_24hrv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i3sus"]
+size = Vector3(2.2611694, 1, 2.197998)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5clau"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ijiyq"]
+
+[sub_resource type="Environment" id="Environment_ijiyq"]
+ambient_light_source = 3
+ambient_light_color = Color(0.89578193, 0.4780776, 0.4545176, 1)
+ambient_light_sky_contribution = 0.53
+ambient_light_energy = 2.86
+tonemap_exposure = 1.39
+fog_enabled = true
+adjustment_enabled = true
+adjustment_brightness = 1.78
+adjustment_contrast = 1.25
+adjustment_saturation = 1.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5clau"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24hrv"]
+
+[node name="3dplayground" type="Node3D" unique_id=791621129]
+
+[node name="dumbball1" type="StaticBody3D" parent="." unique_id=1414057317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5895944, -1.7897506, -4.5846715)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dumbball1" unique_id=1462159272]
+transform = Transform3D(2.0743499, 0, 0, 0, 2.0770614, 0, 0, 0, 1.9972267, 0, 0, 0)
+layers = 5
+mesh = SubResource("SphereMesh_ijiyq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dumbball1" unique_id=956115356]
+shape = SubResource("SphereShape3D_5clau")
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=469137743]
+transform = Transform3D(35.56614, 0, 0, 0, 1, 0, 0, 0, 42.236458, 0, -3.3349519, -3.1336844)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1420657601]
+transform = Transform3D(2.0743499, 0, 0, 0, 2.0770614, 0, 0, 0, 1.9972267, 0, 0, 0)
+layers = 5
+mesh = SubResource("BoxMesh_24hrv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1950776564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02133183, 0.41773033, -0.018920861)
+shape = SubResource("BoxShape3D_i3sus")
+
+[node name="dumbball4" type="StaticBody3D" parent="." unique_id=2057358685]
+transform = Transform3D(2.9747844, 0, 0, 0, 1, 0, 0, 0, 1, 14.789032, -1.8293505, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dumbball4" unique_id=1645936124]
+transform = Transform3D(7.1285057, 0, 0, 0, 2.0770614, 0, 0, 0, 1.9972267, 0, 0, 0)
+layers = 5
+mesh = SubResource("SphereMesh_ijiyq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dumbball4" unique_id=1704829808]
+shape = SubResource("SphereShape3D_5clau")
+
+[node name="dumbball3" type="StaticBody3D" parent="." unique_id=1637519566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.446233, -1.2641706, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dumbball3" unique_id=874434790]
+transform = Transform3D(2.0743499, 0, 0, 0, 3.6502879, 0, 0, 0, 1.9972267, 0, 0, 0)
+layers = 5
+mesh = SubResource("SphereMesh_ijiyq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dumbball3" unique_id=1732635973]
+shape = SubResource("SphereShape3D_5clau")
+
+[node name="dumbball2" type="StaticBody3D" parent="." unique_id=1243690854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5763714, -3.5866928, -2.110649, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dumbball2" unique_id=2057674422]
+transform = Transform3D(2.0743499, 0, 0, 0, 2.0770614, 0, 0, 0, 5.069335, 0, 0, 0)
+layers = 5
+mesh = SubResource("SphereMesh_ijiyq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dumbball2" unique_id=399089659]
+shape = SubResource("SphereShape3D_5clau")
+
+[node name="Playercube" type="CharacterBody3D" parent="." unique_id=1950880777]
+script = ExtResource("1_2rgrm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Playercube" unique_id=770124258]
+mesh = SubResource("BoxMesh_5clau")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Playercube" unique_id=1752365989]
+shape = SubResource("BoxShape3D_ijiyq")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1996881017]
+transform = Transform3D(0.9833071, 0.04589941, -0.17606935, 0.017206699, 0.9398664, 0.34110865, 0.18113835, -0.33844417, 0.9233875, -2.8508854, -0.29859304, 6.7180576)
+fov = 64.68749
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1789368537]
+transform = Transform3D(0.3982265, -0.054434534, -0.9156706, 0.3264357, -0.9244782, 0.19692548, -0.85723704, -0.37732852, -0.35038242, 0, 0, -8.668046)
+light_color = Color(1, 1, 0, 1)
+sky_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1072955511]
+environment = SubResource("Environment_ijiyq")
+
+[node name="win" type="Area3D" parent="." unique_id=911740308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5582814, -1.543164, 0)
+script = ExtResource("2_7tkbs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="win" unique_id=1918559935]
+shape = SubResource("BoxShape3D_5clau")
+
+[node name="lose" type="Area3D" parent="." unique_id=144273302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2603602, -2.897675)
+script = ExtResource("3_myek3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="lose" unique_id=1135986131]
+shape = SubResource("BoxShape3D_24hrv")
+
+[connection signal="body_entered" from="win" to="Playercube" method="_on_win_body_entered"]
+[connection signal="body_entered" from="win" to="win" method="_on_body_entered"]
+[connection signal="body_exited" from="win" to="Playercube" method="_on_win_body_exited"]
+[connection signal="body_exited" from="win" to="win" method="_on_body_exited"]
+[connection signal="body_entered" from="lose" to="Playercube" method="_on_lose_body_entered"]
+[connection signal="body_entered" from="lose" to="lose" method="_on_body_entered"]
+[connection signal="body_exited" from="lose" to="Playercube" method="_on_lose_body_exited"]
+[connection signal="body_exited" from="lose" to="lose" method="_on_body_exited"]
